@@ -1,6 +1,6 @@
-.task-container {
-  width: 80%;
-  height: auto;
+.task-list {
   display: flex;
   flex-flow: wrap;
+  width: calc(100% - 150px);
+  margin-left: 150px;
 }
