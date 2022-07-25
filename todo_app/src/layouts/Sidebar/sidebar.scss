@@ -1,0 +1,15 @@
+.sidebar {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction: column;
+    background: #F88F14;
+
+    ul li {
+        color: white;
+        border-bottom: 2px solid white;
+        text-decoration: none;
+    }
+    
+}
+

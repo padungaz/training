@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.html {
+  font-size: 62.5%;
+}
+
+.todo-app{
+  
+  .body-app{
+      display: flex;
+      
+      .body-tasks {
+        display: flex;
+      }
+  }
+}
+
