@@ -1,14 +1,18 @@
 .sidebar {
-    display: flex;
-    align-items: center;
-    justify-content:flex-start;
-    flex-direction: column;
+    // position: absolute;
     background: #F88F14;
+    width: 150px;
 
-    ul li {
+    button {
+        height: 40px;
+        width: 100%;
         color: white;
-        border-bottom: 2px solid white;
-        text-decoration: none;
+        background-color:#F88F14;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid white; 
+        border-width: 0 0 2px 0;
     }
     
 }

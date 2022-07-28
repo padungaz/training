@@ -1,13 +1,10 @@
 .header {
-
   display: flex;
   justify-content: space-between;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.2);
-
   .header-search {
     display: flex;
-
     input {
       margin-right: 10px;
       padding-left: 10px;

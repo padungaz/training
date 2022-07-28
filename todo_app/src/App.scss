@@ -1,19 +1,13 @@
-* {
-  box-sizing: border-box;
-}
-
-.html {
-  font-size: 62.5%;
-}
-
 .todo-app{
-  
   .body-app{
+    display: flex ;
+    .body-tasks {
+      background-color: #bfffd142;
+      width: 100%;
       display: flex;
-      
-      .body-tasks {
-        display: flex;
-      }
+      padding-top: 30px;
+      justify-content: center;
+    }
   }
 }
 
