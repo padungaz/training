@@ -1,6 +1,8 @@
+// import { useState } from "react";
+
 import "./todoItem.scss";
 
-function TodoItem({ title, status, changeStatus, creator, desscription }) {
+function TodoItem({/* id, */ title, status, changeStatus, creator, desscription }) {
   const chooseStyleStatus = () => {
     switch (status) {
       case "New":
@@ -25,12 +27,16 @@ function TodoItem({ title, status, changeStatus, creator, desscription }) {
     }
   };
 
+  // const [status, setStatus] = useState("New");
 
   return (
     <div className="todoItem">
+      {/* id: {id} */}
       <b className="todoItem__title">Title: {title} </b>
       <p className="todoItem__creator">Creator: {creator} </p>
-      <b style={chooseStyleStatus()} className="todoItem__status">Status: {status} </b>
+      <b style={chooseStyleStatus()} className="todoItem__status">
+        Status: {status}
+      </b>
       <hr></hr>
       <div className="todoItem__desscription">
         <b>Desscription:</b>
@@ -43,6 +49,14 @@ function TodoItem({ title, status, changeStatus, creator, desscription }) {
       >
         {status}
       </button>
+      {/* <select
+        value={status}
+        onChange={(e) => setStatus(e.target.value)}
+      >
+        <option value={"New"}>New</option>
+        <option value={"Doing"}>Doing</option>
+        <option value={"Done"}>Done</option>
+      </select> */}
     </div>
   );
 }

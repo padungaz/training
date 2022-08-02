@@ -1,13 +1,16 @@
 .todo-app{
+  // position: relative;
   .body-app{
     display: flex ;
-    .body-tasks {
-      background-color: #bfffd142;
-      width: 100%;
-      display: flex;
-      padding-top: 30px;
-      justify-content: center;
-    }
+    width: 100vw;
+    height: 100vh;
   }
 }
 
+// .body-tasks {
+//   background-color: #bfffd142;
+//   width: 100%;
+//   display: flex;
+//   padding-top: 30px;
+//   justify-content: center;
+// }

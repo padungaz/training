@@ -1,0 +1,12 @@
+
+.body__task {
+  display: inline;
+  .task-list {
+    display: flex;
+    align-items: center;
+    flex-flow: wrap;
+    // width: calc(100% - 130px);
+    margin-left: 100px;
+  }
+  
+}

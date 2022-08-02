@@ -1,27 +1,27 @@
 import "./header.scss";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Header(openAddTask) {
-  // const navigate = useNavigate();
+function Header() {
+  const navigate = useNavigate();
 
   return (
     <div className="header">
-      {/* <button
+      <button
         className="create_task"
         onClick={() => {
           navigate(`/add-task`);
         }}
       >
         Create New Task
-      </button> */}
+      </button>
 
       {/* <button className="create_task" onClick={openAddTask}>
         Create New Task
       </button> */}
 
-      <button className="create_task">
+      {/* <button className="create_task">
         Create New Task
-      </button>
+      </button> */}
 
       <div className="header-search">
         <input placeholder="Type something to search" />
