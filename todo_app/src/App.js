@@ -15,22 +15,21 @@ function App() {
   }, [listTodo]);
 
   const addNewTodo = (valueItem) => {
+
+
     setListTodo([
       ...listTodo,
       valueItem
     ]);
   };
 
-  const changeStatus = (indexItem) => {
-    const arrTodo = listTodo;
-    arrTodo.splice(indexItem, 1, {
-      title: listTodo[indexItem].title,
-      creator: listTodo[indexItem].creator,
-      desscription: listTodo[indexItem].desscription,
-      status: listTodo[indexItem].status === "New" ? "Doing" : "Done",
-    });
-    setListTodo([...arrTodo]);
+  const changeStatus = (id) => {
+    const dataupdated = listTodo.map((item) =>
+      item.id === id ? { ...item, status: item.status === "New" ? "Doing" : "Done" } : item
+    );
+    setListTodo(dataupdated)
   };
+
 
   const searchTodo = (valueSearch) => {
 

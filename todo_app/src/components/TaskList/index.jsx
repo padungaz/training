@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 import { Routes, Route } from "react-router-dom";
-import { publicRoutes } from "../../routes"
+import { publicRoutes } from "../../routes";
 import Pagination from "../Pagination";
 import "./taskList.scss";
 
@@ -13,18 +13,21 @@ function TaskList({ listTodo, changeStatus, deleteItem }) {
       })
       .map((item, index) => {
         return (
-         <>
-         {console.log('item: ',item)}
-          <TodoItem
-            key={index}
-            {...item}
-            changeStatus={() => changeStatus(/* item.id */index)}
-            deleteItem={()=>deleteItem(index)}
-          />
-         </>
+          <>
+            {console.log('item: ',item)}
+            <TodoItem
+              key={item?.id}
+              // key={index}
+              item={item}
+              changeStatus={() => changeStatus(item.id)}
+              deleteItem={() => deleteItem(item.id /* index */)}
+            />
+          </>
         );
       });
   };
+
+  console.log('listTodo', listTodo);
 
   return (
     <div className="body__task">

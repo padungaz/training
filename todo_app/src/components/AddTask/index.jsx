@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./addTask.scss";
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 function AddTask({ addNewTodo }) {
   const [formValue, setFormValue] = useState({
@@ -13,6 +14,7 @@ function AddTask({ addNewTodo }) {
 
   const handleAddNewTodo = (e) => {
     addNewTodo({
+      id: uuidv4(),
       title: formValue.title,
       creator: formValue.creator,
       desscription: formValue.desscription,

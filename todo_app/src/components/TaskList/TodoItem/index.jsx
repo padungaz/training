@@ -3,15 +3,17 @@
 import "./todoItem.scss";
 
 function TodoItem({
-  /* id, */ title,
+  /* 
+  title,
   status,
-  changeStatus,
   creator,
-  desscription,
+  desscription, */
+  item,
+  changeStatus,
   deleteItem,
 }) {
   const chooseStyleStatus = () => {
-    switch (status) {
+    switch (item.status) {
       case "New":
         return {
           color: "red",
@@ -38,23 +40,23 @@ function TodoItem({
 
   return (
     <div className="todoItem">
-      {/* id: {id} */}
-      <b className="todoItem__title">Title: {title} </b>
-      <p className="todoItem__creator">Creator: {creator} </p>
+      id: {item.id}
+      <b className="todoItem__title">Title: {item.title} </b>
+      <p className="todoItem__creator">Creator: {item.creator} </p>
       <b style={chooseStyleStatus()} className="todoItem__status">
-        Status: {status}
+        Status: {item.status}
       </b>
       <hr></hr>
       <div className="todoItem__desscription">
         <b>Desscription:</b>
-        <p>{desscription}</p>
+        <p>{item.desscription}</p>
       </div>
       <button
         className="status__btn"
         style={chooseStyleStatus()}
         onClick={changeStatus}
       >
-        {status}
+        {item.status}
       </button>
       {/* <select
         value={status}
