@@ -200,13 +200,13 @@
 
 // -------------------------------------------------------------
 
-import { useState/* , useEffect  */} from "react";
+// import { useState/* , useEffect  */} from "react";
 
-import { Routes, Route } from "react-router-dom";
-import TaskList from "../../components/TaskList";
-import AddTask from "../../components/AddTask";
+// import { Routes, Route } from "react-router-dom";
+// import TaskList from "../../components/TaskList";
+// import AddTask from "../../components/AddTask";
 
-import "./main.scss";
+// import "./main.scss";
 
 // const todoArray = [
 //   {
@@ -295,70 +295,112 @@ import "./main.scss";
 //   },
 // ];
 
-function Main() {
-  // const [todoArray, setTodoArray] = useState(JSON.parse(localStorage.getItem('datas')) || []);
-  const [listTodo, setListTodo] = useState(JSON.parse(localStorage.getItem('datas')) || []);
+// ---------------------------------------------------
 
-  // useEffect(() => {
-  //   if (todoArray) {
-  //    setTodoArray(todoArray);
-  //   }
-  // }, [todoArray]);
+// import { useState, useEffect } from "react";
 
+// import { Routes, Route } from "react-router-dom";
+// import TaskList from "../../components/TaskList";
+// import AddTask from "../../components/AddTask";
 
-  const addNewTodo = (valueItem) => {
-    setListTodo([
-      ...listTodo,
-      {
-        title: valueItem.title,
-        creator: valueItem.creator,
-        desscription: valueItem.desscription,
-        status: valueItem.status,
-      },
-    ]);
-  };
+// import "./main.scss";
 
-  
+// function Main() {
+//   const [listTodo, setListTodo] = useState(
+//     JSON.parse(localStorage.getItem("datas")) || []
+//   );
 
-  const changeStatus = (/* id */ indexItem) => {
+//   useEffect(() => {
+//     localStorage.setItem("datas", JSON.stringify(listTodo));
+//   }, [listTodo]);
 
-    // console.log('id: ', id);
-    setListTodo([...listTodo]);
-    const arrTodo = listTodo;
-
-    // let indexItem = arrTodo.findIndex(item => item.id === id);
-
-    // if(indexItem !== -1){
-    //   arrTodo.splice(indexItem, 1, {
-    //     title: listTodo[indexItem].title,
-    //     creator: listTodo[indexItem].creator,
-    //     desscription: listTodo[indexItem].desscription,
-    //     status: listTodo[indexItem].status === "New" ? "Doing" : "Done",
-    //   });
-    //   setListTodo([...arrTodo]);
-    // }
-
-    arrTodo.splice(indexItem, 1, {
-            title: listTodo[indexItem].title,
-            creator: listTodo[indexItem].creator,
-            desscription: listTodo[indexItem].desscription,
-            status: listTodo[indexItem].status === "New" ? "Doing" : "Done",
-          });
-          setListTodo([...arrTodo]);
-   
-  };
+//   const addNewTodo = (valueItem) => {
 
 
-  localStorage.setItem('datas', JSON.stringify(listTodo));
+//     // console.log("indx", valueItem);
+//     // const arr = listTodo?.map((item) =>
+//     //   item?.title !== valueItem?.title ? [ ...listTodo, valueItem, ] : listTodo
+//     // );
+//     // setListTodo(arr);
 
 
+
+//     setListTodo([
+//       ...listTodo,
+//       valueItem,
+//       // {
+//       //   title: valueItem.title,
+//       //   creator: valueItem.creator,
+//       //   desscription: valueItem.desscription,
+//       //   status: valueItem.status,
+//       // },
+//     ]);
+
+
+//   };
+
+//   const changeStatus = (/* id */ indexItem) => {
+//     // console.log('id: ', id);
+//     const arrTodo = listTodo;
+
+//     // let indexItem = arrTodo.findIndex(item => item.id === id);
+
+//     // if(indexItem !== -1){
+//     //   arrTodo.splice(indexItem, 1, {
+//     //     title: listTodo[indexItem].title,
+//     //     creator: listTodo[indexItem].creator,
+//     //     desscription: listTodo[indexItem].desscription,
+//     //     status: listTodo[indexItem].status === "New" ? "Doing" : "Done",
+//     //   });
+//     //   setListTodo([...arrTodo]);
+//     // }
+
+//     arrTodo.splice(indexItem, 1, {
+//       title: listTodo[indexItem].title,
+//       creator: listTodo[indexItem].creator,
+//       desscription: listTodo[indexItem].desscription,
+//       status: listTodo[indexItem].status === "New" ? "Doing" : "Done",
+//     });
+//     setListTodo([...arrTodo]);
+//   };
+
+//   // localStorage.setItem("datas", JSON.stringify(listTodo));
+
+//   return (
+//     <div className="main">
+//       <Routes>
+//         <Route
+//           path="*"
+//           element={
+//             <TaskList todoArray={listTodo} changeStatus={changeStatus} />
+//           }
+//         />
+//         <Route path="/add-task" element={<AddTask addNewTodo={addNewTodo} />} />
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// export default Main;
+
+
+// -----------------------------------------------
+
+
+import { Routes, Route } from "react-router-dom";
+import TaskList from "../../components/TaskList";
+import AddTask from "../../components/AddTask";
+
+import "./main.scss";
+
+function Main({ listTodo, changeStatus, addNewTodo, deleteItem }) {
   return (
     <div className="main">
       <Routes>
         <Route
           path="*"
           element={
-            <TaskList todoArray={listTodo} changeStatus={changeStatus} />
+            <TaskList listTodo={listTodo} changeStatus={changeStatus} deleteItem={deleteItem}/>
           }
         />
         <Route path="/add-task" element={<AddTask addNewTodo={addNewTodo} />} />

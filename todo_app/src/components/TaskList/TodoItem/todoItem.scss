@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap");
 
 .todoItem {
+  position: relative;
   background-color: #fff;
   border: 2px solid blue;
   border-radius: 8px;
@@ -28,5 +29,20 @@
     cursor: pointer;
     height: 30px;
     width: 80px;
+  }
+  
+  .btn--delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    align-items: center;
+    border: 1px solid red;
+    border-radius: 5px;
+    line-height: 1.2rem;
+    color: white;
+    background-color: red;
+    font-size: 1.2rem;
+    cursor: pointer;
+
   }
 }

@@ -1,7 +1,12 @@
-import "./header.scss";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function Header() {
+
+import { useNavigate } from "react-router-dom";
+import "./header.scss";
+
+function Header({searchTodo}) {
+  const [valueInput, setValueInput] = useState("");
+
   const navigate = useNavigate();
 
   return (
@@ -15,17 +20,14 @@ function Header() {
         Create New Task
       </button>
 
-      {/* <button className="create_task" onClick={openAddTask}>
-        Create New Task
-      </button> */}
-
-      {/* <button className="create_task">
-        Create New Task
-      </button> */}
-
       <div className="header-search">
-        <input placeholder="Type something to search" />
-        <button>Search</button>
+        <input
+          name="search"
+          value={valueInput}
+          onChange={(e) => setValueInput(e.target.value)}
+          placeholder="Type something to search"
+        />
+        <button onClick={() => searchTodo({ value: valueInput})}>Search</button>
       </div>
     </div>
   );

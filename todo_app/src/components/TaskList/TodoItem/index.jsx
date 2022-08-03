@@ -2,7 +2,14 @@
 
 import "./todoItem.scss";
 
-function TodoItem({/* id, */ title, status, changeStatus, creator, desscription }) {
+function TodoItem({
+  /* id, */ title,
+  status,
+  changeStatus,
+  creator,
+  desscription,
+  deleteItem,
+}) {
   const chooseStyleStatus = () => {
     switch (status) {
       case "New":
@@ -57,6 +64,10 @@ function TodoItem({/* id, */ title, status, changeStatus, creator, desscription 
         <option value={"Doing"}>Doing</option>
         <option value={"Done"}>Done</option>
       </select> */}
+
+      <span className="btn--delete" onClick={deleteItem}>
+        &#10005;
+      </span>
     </div>
   );
 }

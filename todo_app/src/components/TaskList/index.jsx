@@ -4,9 +4,9 @@ import { publicRoutes } from "../../routes"
 import Pagination from "../Pagination";
 import "./taskList.scss";
 
-function TaskList({ todoArray, changeStatus }) {
+function TaskList({ listTodo, changeStatus, deleteItem }) {
   const renderItem = (status = null) => {
-    return todoArray
+    return listTodo
       .filter((item) => {
         if (status) return item.status === status;
         return true;
@@ -19,11 +19,13 @@ function TaskList({ todoArray, changeStatus }) {
             key={index}
             {...item}
             changeStatus={() => changeStatus(/* item.id */index)}
+            deleteItem={()=>deleteItem(index)}
           />
          </>
         );
       });
   };
+
   return (
     <div className="body__task">
       <div className="task-list">
