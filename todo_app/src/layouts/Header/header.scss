@@ -3,6 +3,10 @@
   justify-content: space-between;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.2);
+
+  button {
+    cursor: pointer;
+  }
   .header-search {
     display: flex;
     input {

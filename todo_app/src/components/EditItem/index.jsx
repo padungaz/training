@@ -1,27 +1,27 @@
 import { useState } from "react";
-import "./addTask.scss";
-import { useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
 
-function AddTask({ addNewTodo }) {
+import "./editItem.scss";
+
+function EditItem({item, save} ) {
+  // console.log("item", item);
+
   const [formValue, setFormValue] = useState({
-    title: "",
-    creator: "",
-    desscription: "",
-    status: "New",
+    title: item.title,
+    creator: item.creator,
+    desscription: item.desscription,
+    status: item.status,
+    id: item.id,
   });
   
-  const history = useNavigate();
 
   const handleAddNewTodo = (e) => {
-    addNewTodo({
-      id: uuidv4(),
+    save({
+      id: formValue.id,
       title: formValue.title,
       creator: formValue.creator,
       desscription: formValue.desscription,
       status: formValue.status,
     });
-    history('/');
     e.preventDefault();
   };
 
@@ -31,10 +31,10 @@ function AddTask({ addNewTodo }) {
       [e.target.name]: e.target.value,
     });
   };
-
   return (
-    <div className="add-task">
-      <form>
+    <div className="edit-item">
+      <h1>edit item</h1>
+       <form>
         <div className="form">
           <div className="item-input">
             <label htmlFor="">Title :</label>
@@ -43,7 +43,6 @@ function AddTask({ addNewTodo }) {
               value={formValue.title}
               onChange={handleForm}
               type="text"
-              placeholder="Place holder "
             />
           </div>
           <div className="item-input">
@@ -53,7 +52,6 @@ function AddTask({ addNewTodo }) {
               value={formValue.creator}
               onChange={handleForm}
               type="text"
-              placeholder="Name of Creator"
             />
           </div>
           <div className="item-input">
@@ -63,7 +61,6 @@ function AddTask({ addNewTodo }) {
               value={formValue.desscription}
               onChange={handleForm}
               // rows="10"
-              placeholder="Description Details"
             ></textarea>
           </div>
           <select name="status" value={formValue.status} onChange={handleForm}>
@@ -72,9 +69,9 @@ function AddTask({ addNewTodo }) {
             <option value="Done">Done</option>
           </select>
         </div>
-        <div className="addNew">
-          <button onClick={(e) => handleAddNewTodo(e)} type="submit">
-            ADD CREATE
+        <div className="save">  
+          <button className="btn--save"onClick={(e) => handleAddNewTodo(e)} type="submit">
+            SAVE
           </button>
         </div>
       </form>
@@ -82,4 +79,4 @@ function AddTask({ addNewTodo }) {
   );
 }
 
-export default AddTask;
+export default EditItem;

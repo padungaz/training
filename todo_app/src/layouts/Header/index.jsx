@@ -8,7 +8,10 @@ function Header({searchTodo}) {
   const [valueInput, setValueInput] = useState("");
 
   const navigate = useNavigate();
-
+  const handleSearchTodo = () => {
+  searchTodo({ value: valueInput});
+  navigate(`/search`)
+  }
   return (
     <div className="header">
       <button
@@ -27,7 +30,7 @@ function Header({searchTodo}) {
           onChange={(e) => setValueInput(e.target.value)}
           placeholder="Type something to search"
         />
-        <button onClick={() => searchTodo({ value: valueInput})}>Search</button>
+        <button onClick={() => handleSearchTodo() } >Search</button>
       </div>
     </div>
   );

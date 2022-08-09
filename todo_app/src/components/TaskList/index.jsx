@@ -3,8 +3,15 @@ import { Routes, Route } from "react-router-dom";
 import { publicRoutes } from "../../routes";
 import Pagination from "../Pagination";
 import "./taskList.scss";
+import Search from "../Search";
 
-function TaskList({ listTodo, changeStatus, deleteItem }) {
+function TaskList({
+  listTodo,
+  changeStatus,
+  deleteItem,
+  search,
+  toggle
+}) {
   const renderItem = (status = null) => {
     return listTodo
       .filter((item) => {
@@ -14,20 +21,33 @@ function TaskList({ listTodo, changeStatus, deleteItem }) {
       .map((item, index) => {
         return (
           <>
-            {console.log('item: ',item)}
+            {/* {console.log('item: ',item)} */}
             <TodoItem
               key={item?.id}
               // key={index}
               item={item}
               changeStatus={() => changeStatus(item.id)}
-              deleteItem={() => deleteItem(item.id /* index */)}
+              deleteItem={() => deleteItem(item.id)}
+              toggle={toggle}
             />
           </>
         );
       });
   };
 
-  console.log('listTodo', listTodo);
+  const searchTodo = () => {
+    return search.map((item, index) => {
+      return (
+        <TodoItem
+          key={item?.id}
+          item={item}
+          changeStatus={() => changeStatus(item.id)}
+          deleteItem={() => deleteItem(item.id)}
+        />
+      );
+    });
+  };
+  // console.log("listTodo", listTodo);
 
   return (
     <div className="body__task">
@@ -43,6 +63,8 @@ function TaskList({ listTodo, changeStatus, deleteItem }) {
               />
             );
           })}
+
+          <Route path="/search" element={<Search>{searchTodo()}</Search>} />
         </Routes>
       </div>
       <div className="main__pagination">

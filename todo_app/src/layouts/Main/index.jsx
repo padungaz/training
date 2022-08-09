@@ -116,6 +116,17 @@
 //   // //   setListTodo(arr);
 //   // // };
 
+// const changeStatus = (id) => {
+//   const dataupdated = listTodo.map(el => {
+//     if(el.id === id){
+//       return {...el, status: el.status === "New" ? "Doing" : "Done"}
+//     } else {
+//       return el
+//     }
+//   })
+//   setListTodo(dataupdated)
+// };
+
 //   // const renderItem = (status = null) => {
 //   //   return listTodo
 //   //     .filter((item) => {
@@ -316,14 +327,11 @@
 
 //   const addNewTodo = (valueItem) => {
 
-
 //     // console.log("indx", valueItem);
 //     // const arr = listTodo?.map((item) =>
 //     //   item?.title !== valueItem?.title ? [ ...listTodo, valueItem, ] : listTodo
 //     // );
 //     // setListTodo(arr);
-
-
 
 //     setListTodo([
 //       ...listTodo,
@@ -335,7 +343,6 @@
 //       //   status: valueItem.status,
 //       // },
 //     ]);
-
 
 //   };
 
@@ -383,9 +390,7 @@
 
 // export default Main;
 
-
 // -----------------------------------------------
-
 
 import { Routes, Route } from "react-router-dom";
 import TaskList from "../../components/TaskList";
@@ -393,14 +398,28 @@ import AddTask from "../../components/AddTask";
 
 import "./main.scss";
 
-function Main({ listTodo, changeStatus, addNewTodo, deleteItem }) {
+function Main({
+  listTodo,
+  changeStatus,
+  addNewTodo,
+  deleteItem,
+  search,
+  toggle
+}) {
+
   return (
     <div className="main">
       <Routes>
         <Route
           path="*"
           element={
-            <TaskList listTodo={listTodo} changeStatus={changeStatus} deleteItem={deleteItem}/>
+            <TaskList
+              listTodo={listTodo}
+              changeStatus={changeStatus}
+              deleteItem={deleteItem}
+              search={search}
+              toggle={toggle}
+            />
           }
         />
         <Route path="/add-task" element={<AddTask addNewTodo={addNewTodo} />} />

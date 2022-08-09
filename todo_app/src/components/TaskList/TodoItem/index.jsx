@@ -11,6 +11,7 @@ function TodoItem({
   item,
   changeStatus,
   deleteItem,
+  toggle
 }) {
   const chooseStyleStatus = () => {
     switch (item.status) {
@@ -36,11 +37,21 @@ function TodoItem({
     }
   };
 
+  const handleChangeStatus = (e) => {
+    changeStatus();
+    e.stopPropagation();
+  };
+
+  const handleDelete = (e) => {
+    deleteItem()
+    e.stopPropagation();
+  }
+
   // const [status, setStatus] = useState("New");
 
   return (
-    <div className="todoItem">
-      id: {item.id}
+    <div className="todoItem" onClick={() => toggle({ item })}>
+      {/* id: {item.id} */}
       <b className="todoItem__title">Title: {item.title} </b>
       <p className="todoItem__creator">Creator: {item.creator} </p>
       <b style={chooseStyleStatus()} className="todoItem__status">
@@ -54,7 +65,8 @@ function TodoItem({
       <button
         className="status__btn"
         style={chooseStyleStatus()}
-        onClick={changeStatus}
+        // onClick={changeStatus}
+        onClick={(e) => handleChangeStatus(e)}
       >
         {item.status}
       </button>
@@ -67,9 +79,12 @@ function TodoItem({
         <option value={"Done"}>Done</option>
       </select> */}
 
-      <span className="btn--delete" onClick={deleteItem}>
+      <span className="btn--delete"  onClick={(e) => handleDelete(e)}/* onClick={deleteItem} */>
         &#10005;
       </span>
+      {/* <button onClick={() =>toggle({item})}>                  
+       Add  
+      </button> */}
     </div>
   );
 }
