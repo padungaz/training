@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 
 import "./editItem.scss";
 
-function EditItem({item, save} ) {
-  // console.log("item", item);
+function EditItem({item, saveItem} ) {
+  console.log("item", item);
 
   const [formValue, setFormValue] = useState({
     title: item.title,
@@ -15,7 +15,7 @@ function EditItem({item, save} ) {
   
 
   const handleAddNewTodo = (e) => {
-    save({
+    saveItem({
       id: formValue.id,
       title: formValue.title,
       creator: formValue.creator,
@@ -79,4 +79,4 @@ function EditItem({item, save} ) {
   );
 }
 
-export default EditItem;
+export default memo(EditItem);
