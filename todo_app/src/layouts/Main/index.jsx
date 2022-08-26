@@ -431,9 +431,51 @@
 // export default Main;
 
 
+// // ----------------------------------------------------------------
+
+// // // JSON server cach 1
+
+// import { Routes, Route } from "react-router-dom";
+// import TaskList from "../../components/TaskList";
+// import AddTask from "../../components/AddTask";
+
+// import "./main.scss";
+
+// function Main({
+//   listTodo,
+//   changeStatus,
+//   addNewTodo,
+//   deleteItem,
+//   search,
+//   toggle
+// }) {
+
+//   return (
+//     <div className="main">
+//       <Routes>
+//         <Route
+//           path="*"
+//           element={
+//             <TaskList
+//               listTodo={listTodo}
+//               changeStatus={changeStatus}
+//               deleteItem={deleteItem}
+//               search={search}
+//               toggle={toggle}
+//             />
+//           }
+//         />
+//         <Route path="/add-task" element={<AddTask addNewTodo={addNewTodo} />} />
+//       </Routes>
+//     </div>
+//   );
+// }
+
+// export default Main;
+
 // ----------------------------------------------------------------
 
-// // JSON server cach 1
+// mobx
 
 import { Routes, Route } from "react-router-dom";
 import TaskList from "../../components/TaskList";
@@ -442,10 +484,10 @@ import AddTask from "../../components/AddTask";
 import "./main.scss";
 
 function Main({
-  listTodo,
-  changeStatus,
-  addNewTodo,
-  deleteItem,
+  // listTodo,
+  // changeStatus,
+  // addNewTodo,
+  // deleteItem,
   search,
   toggle
 }) {
@@ -457,15 +499,15 @@ function Main({
           path="*"
           element={
             <TaskList
-              listTodo={listTodo}
-              changeStatus={changeStatus}
-              deleteItem={deleteItem}
+              // listTodo={listTodo}
+              // changeStatus={changeStatus}
+              // deleteItem={deleteItem}
               search={search}
               toggle={toggle}
             />
           }
         />
-        <Route path="/add-task" element={<AddTask addNewTodo={addNewTodo} />} />
+        <Route path="/add-task" element={<AddTask /* addNewTodo={addNewTodo}  *//>} />
       </Routes>
     </div>
   );
